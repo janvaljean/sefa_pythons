@@ -1,3 +1,5 @@
+# #! PART A
+
 class WOFPlayer:
     prizeMoney = 0
     prizes = []
@@ -16,3 +18,5 @@ class WOFPlayer:
     
     def __str__(self) -> str:
         return f"{self.name} {(self.prizeMoney)}"
+    
+# #! PART B
