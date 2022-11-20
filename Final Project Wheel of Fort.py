@@ -20,3 +20,39 @@ class WOFPlayer:
         return f"{self.name} {(self.prizeMoney)}"
     
 # #! PART B
+
+
+class WOFHumanPlayer(WOFPlayer):
+    
+    def getMove(self, category, obscuredPhrase, guessed):
+        print(f"{self.name} has ${self.prizeMoney}\n\nCategory: {category}\nPhrase: {obscuredPhrase}\nGuessed: {guessed}\n\nGuess a letter,phrase or type 'exit' or 'pass':")
+        guessed = input().upper
+        if guessed == 'exit':
+            return "exit the game"
+        elif guessed == 'pass':
+            return "skip your turn"
+        
+# ! PART C
+
+
+class WOFComputerPlayer(WOFPlayer):
+    import random
+    SORTED_FREQUENCIES = 'ZQXJKVBPYGFWMUCLDRHSNIOATE'
+    super().__init__()
+    self.difficulty = 2
+
+    def smartCoinFlip(self):
+        if self.difficulty < random.randint(1, 10):
+            return False
+        else:
+            return True
+
+    def getPossibleLetters(self, guessed):
+        LETTERS = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+        LETTERS.pop(guessed)
+        VOWELS = list('AEIOU')
+        VOWEL_COST = 250
+        if self.prizeMoney < VOWEL_COST:
+            for v in VOWELS:
+                LETTERS.pop(v)
+        return LETTERS
