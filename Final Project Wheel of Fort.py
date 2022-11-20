@@ -56,3 +56,13 @@ class WOFComputerPlayer(WOFPlayer):
             for v in VOWELS:
                 LETTERS.pop(v)
         return LETTERS
+
+    def getMove(self, category, obscuredPhrase, guessed):
+        getPossibleLetters(guessed)
+        if LETTERS == VOWELS and self.prizeMoney < VOWEL_COST:
+            return 'pass'
+
+        elif smartCoinFlip(self) == True:
+            return SORTED_FREQUENCIES[-1]
+        elif smartCoinFlip(self) == False:
+            random.choice(getPossibleLetters())
