@@ -77,10 +77,6 @@ class WOFComputerPlayer(WOFPlayer):
 sys.setExecutionLimit(100000)  # let this take up to 10 minutes
 
 
-LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-VOWELS = 'AEIOU'
-VOWEL_COST = 250
-
 # Repeatedly asks the user for a number between min & max (inclusive)
 
 
